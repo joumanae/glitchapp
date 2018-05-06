@@ -177,6 +177,7 @@ packages:
     dev: false
     engines:
       node: '>=0.5.2'
+    requiresBuild: true
     resolution:
       integrity: sha1-IvA5yPGLhWGQ+75N7PBWFUwerpw=
   /finalhandler/1.1.1:
@@ -212,6 +213,9 @@ packages:
     engines:
       node: '>=0.8.0'
     optional: true
+    os:
+      - darwin
+    requiresBuild: true
     resolution:
       integrity: sha1-mZLxAyySXIKVVNDVmAHcoDE6U1Y=
   /graceful-fs/2.0.3:
@@ -568,7 +572,7 @@ packages:
     resolution:
       integrity: sha1-o9XabNXAvAAI03I0u68b7WMFkQc=
 registry: 'https://registry.npmjs.org/'
-shrinkwrapMinorVersion: 4
+shrinkwrapMinorVersion: 5
 shrinkwrapVersion: 3
 specifiers:
   body-parser: '*'
