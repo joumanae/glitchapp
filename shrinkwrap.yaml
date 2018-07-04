@@ -296,6 +296,7 @@ packages:
       integrity: sha512-lc/aahn+t4/SWV/qcmumYjymLsWfN3ELhpmVuUFjgsORruuZPVSwAQryq+HHGvO/SI2KVX26bx+En+zhM8g8hQ==
   /mime/1.4.1:
     dev: false
+    hasBin: true
     resolution:
       integrity: sha512-KI1+qOZu5DcW6wayYHSzR/tXKCDC5Om4s1z2QJjDULzLcmf3DvzS7oluY4HCTrc+9FiKmWUgeNLg7W3uIQvxtQ==
   /minimatch/0.2.14:
@@ -348,6 +349,7 @@ packages:
       optimist: 0.6.1
     deprecated: 'potential XSS vulnerability in autoescape mode, and with escape filter was fixed in v2.4.3'
     dev: false
+    hasBin: true
     resolution:
       integrity: sha1-Td0QqDZLGmTT49fSqNQ2gTHTkEI=
   /on-finished/2.3.0:
@@ -461,6 +463,7 @@ packages:
       integrity: sha512-kKvNJn6Mm93gAczWVJg7wH+wGYWNrDHdWvpUmHyEsgCtIwwo3bqPtV4tR5tuPaUhTOo/kvhVwd8XwwOllGYkbg==
   /semver/5.5.0:
     dev: false
+    hasBin: true
     resolution:
       integrity: sha512-4SJ3dm0WAwWy/NVeioZh5AntkdJoWKxHxcmyP622fOkgHa4z3R0TdBJICINyaSDE6uNwVc8gZr+ZinwZAH4xIA==
   /send/0.16.2:
@@ -572,7 +575,7 @@ packages:
     resolution:
       integrity: sha1-o9XabNXAvAAI03I0u68b7WMFkQc=
 registry: 'https://registry.npmjs.org/'
-shrinkwrapMinorVersion: 7
+shrinkwrapMinorVersion: 8
 shrinkwrapVersion: 3
 specifiers:
   body-parser: '*'
