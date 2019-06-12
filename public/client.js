@@ -7,16 +7,15 @@ function reqListener (data) {
   document.body.innerHTML += this.responseText + '&lt;br&gt;';
 }
 
-setInterval(function () {
+const shifts = setInterval(function () {
 var oReq = new XMLHttpRequest();
 oReq.addEventListener("load", reqListener);
-oReq.open("GET", "/api");
+oReq.open("GET", "/api/shifts");
 oReq.send();
 }, 3000);
 
 // our default array of shifts
-const shifts = [
-];
+
 
 
 const shiftsList = document.getElementById('shifts');

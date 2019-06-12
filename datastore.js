@@ -141,7 +141,7 @@ function DatastoreUnknownException(method, args, ex) {
 // SYNCHRONOUS WRAPPERS AROUND THE PROMISE API
 // -------------------------------------------
 
-var sync = require("synchronize");
+const sync = require("synchronize");
 
 function setCallback(key, value, callback) {
   set(key, value)

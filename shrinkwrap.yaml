@@ -2,10 +2,9 @@ dependencies:
   bcrypt: 3.0.6
   body-parser: 1.19.0
   express: 4.17.1
-  fibers-nodejs: 1.0.2
   jsonwebtoken: 8.5.1
   mongodb: 3.2.7
-  mongoose: 5.5.14
+  mongoose: 5.5.15
   mongoose-validator: 2.1.0
   nunjucks: 3.2.0
   synchronize: 2.0.0
@@ -547,13 +546,6 @@ packages:
     optional: true
     resolution:
       integrity: sha512-Nmb6QXkELsuBr24CJSkilo6UHHgbekK5UiZgfE6UHD3Eb27YC6oD+bhcT+tJ6cl8dmsgdQxnWlcry8ksBIBLpw==
-  /fibers-nodejs/1.0.2:
-    dev: false
-    engines:
-      node: '>=0.10.2'
-    requiresBuild: true
-    resolution:
-      integrity: sha1-2MrGqD2I4DRqEExs3PI0LphvoYI=
   /fibers/1.0.15:
     dev: false
     engines:
@@ -1217,7 +1209,7 @@ packages:
     dev: false
     resolution:
       integrity: sha512-o1oThcinMdYfuut8ld8iQv4TdEB8W6I/WIKB6lWGtHzHmxa/SRnmXg2FeLL2CO+b9vzRitVubrFTeMOr9bJ2cA==
-  /mongoose/5.5.14:
+  /mongoose/5.5.15:
     dependencies:
       async: 2.6.2
       bson: 1.1.1
@@ -1236,7 +1228,7 @@ packages:
     engines:
       node: '>=4.0.0'
     resolution:
-      integrity: sha512-BWrugOHZQLeiXlA9bA/xo9TvjZpV5O4T5vJJT7wsLmZyAi0heYkAPqzH206+NxgnPyAifqjrLR+M24vqXgugNQ==
+      integrity: sha512-VRX3i3ptARSGT82b6H0k/oGxkaDXPPpIBstGyrQ3mDGjygPDPjlXvJaih6zyjfRXRVvdu1L2nVfQH5FixANO1w==
   /mpath/0.6.0:
     dev: false
     engines:
@@ -2070,7 +2062,6 @@ specifiers:
   bcrypt: ^3.0.6
   body-parser: ^1.19.0
   express: ^4.16.4
-  fibers-nodejs: ^1.0.2
   jsonwebtoken: ^8.5.1
   mongodb: ^3.2.6
   mongoose: ^5.5.12
