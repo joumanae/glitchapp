@@ -6,7 +6,10 @@
 var express = require("express");
 var app = express();
 var bodyParser = require('body-parser');
-const userRouter = require('./user/user.router') 
+const userRouter = require('./user/user.router')
+const shiftRouter = require('./shift/shift.router')
+const listRouter = require('./list/list.router')
+const {signup, signin, protect} = require('./utils/auth') 
 
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -19,6 +22,8 @@ console.log('Listening on port 3000');
 
 app.use(express.static('public'));
 app.use('/api/user', userRouter)
+app.use('/api/shift', shiftRouter)
+app.use('/api/list', listRouter)
 
 //app.use()
 // define functions that would fetch the function that would create the 
@@ -35,7 +40,8 @@ var datastore = require("./datastore").sync;
 datastore.initializeApp(app);
 
 // create routes
-app.get("/", function (request, response) {
+
+app.get("/api/list", function (request, response) {
   try {
     initializeDatastoreOnProjectCreation();
     var list = datastore.get("list");
