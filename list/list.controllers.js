@@ -1,20 +1,19 @@
 const express = require('express') 
-const controllers = require('./shift.controllers')
+const controllers = require('./list.controllers')
 
 const router = express.Router()
 
-
-// /api/item
+// /api/list
 router
   .route('/')
   .get(controllers.getOne)
   .post(controllers.createOne)
 
-// /api/item/:id
+// /api/list/:id
 router
   .route('/:id')
   .get(controllers.getOne)
   .put(controllers.updateOne)
   .delete(controllers.removeOne)
 
-module.exports = router 
+module.exports = router  
