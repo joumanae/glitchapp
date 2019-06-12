@@ -7,11 +7,16 @@ function reqListener (data) {
   document.body.innerHTML += this.responseText + '&lt;br&gt;';
 }
 
-const getshifts = function(callback()) {
+const getshifts = function(callback) {
 var oReq = new XMLHttpRequest(); 
 oReq.addEventListener("load", reqListener);
 oReq.open("GET", "/api/shifts");
-oReq.send();
+oReq.onereadystatechange = function(){
+  if(oReq.readyState === 4 && oReq.status === 200){
+    callback(oReq.responseTxt)
+  }
+}; 
+oReq.send(); 
 }
       
 // our default array of shifts
