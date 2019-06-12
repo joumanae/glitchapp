@@ -7,16 +7,13 @@ function reqListener (data) {
   document.body.innerHTML += this.responseText + '&lt;br&gt;';
 }
 
-const addshifts = function() {
+const getshifts = function(callback()) {
 var oReq = new XMLHttpRequest(); 
 oReq.addEventListener("load", reqListener);
 oReq.open("GET", "/api/shifts");
 oReq.send();
 }
       
-      
-      
-
 // our default array of shifts
 
 
@@ -32,10 +29,12 @@ const appendNewShift = function(shift) {
   shiftsList.appendChild(newListItem);
 }
 
-const getShifts = function()
-shifts.forEach( function(shift) {
-  appendNewShift(shift);
-});
+const loadShifts = function(){ 
+  getshifts(function(shifts) {
+  appendNewShift(shifts);
+})};
+
+loadShifts(); 
 
 
 shiftsForm.onsubmit = function(event) {
@@ -44,7 +43,6 @@ shiftsForm.onsubmit = function(event) {
 
   let shiftInput = {shift: event.srcElement.elements['shift'], starttime: event.srcElement.elements['starttime'], endtime: event.srcElement.elements['endtime']}
   
-  shifts.push(shiftInput.value);
   appendNewShift(shiftInput.value);
 
   // reset form 
