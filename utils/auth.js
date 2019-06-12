@@ -19,8 +19,6 @@ const verifyToken = token => {
   })
 }
 
-
-  
 const signup = async(req, res) => {
   if (!req.body.email || !req.body.password) {
     return res.status(400).send({message: 'Please add your email and password'})
@@ -95,4 +93,4 @@ const protect = async (req, res, next) => {
   next()
 }
 
-module.exports = {verifyToken, newToken,  signup, signin, protect}  
+module.exports = {signup, signin, protect}  

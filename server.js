@@ -6,10 +6,13 @@
 var express = require("express");
 var app = express();
 var bodyParser = require('body-parser');
-const userRouter = require('./user/user.router')
-const shiftRouter = require('./shift/shift.router')
-const listRouter = require('./list/list.router')
-const {signup, signin, protect} = require('./utils/auth') 
+const signup = require('./utils/auth');
+const signin = require('./utils/auth'); 
+
+const userRouter = require('./user/user.router'); 
+const shiftRouter = require('./shift/shift.router'); 
+const listRouter = require('./list/list.router'); 
+
 
 
 app.use(bodyParser.urlencoded({extended: false}));
