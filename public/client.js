@@ -1,6 +1,4 @@
 // client-side js
-
-
 console.log('hello world, hello shifts :)');
 
 'use strict' 
