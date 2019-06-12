@@ -19,27 +19,19 @@ const verifyToken = token => {
   })
 }
 
-require.define({"complex-numbers/plus-two": function(require, exports){
-// define body in callback
-  var sum = require("./complex-number").sum;
-  exports.plusTwo = function(a){
-  return sum(a, 2);
-};
-
-require.define({"signup": function(require, exports){ 
+const signup = async(req, res) => {
   if (!req.body.email || !req.body.password) {
     return res.status(400).send({message: 'Please add your email and password'})
-  })
+  } 
   
   try{
-    exports.user =  User.create
+    const user = await User.create
     const token = newToken(user)
     return res.status(201).send({token})
   } catch (e){
     return res.status(500).end()
   }
 }
-
 
 
   
