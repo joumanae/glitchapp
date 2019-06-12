@@ -9,7 +9,6 @@ const newToken = user => {
   })
 }
 
-module.exports = newToken 
 
 const verifyToken = token => {
   new Promise((resolve, reject) => {
@@ -18,8 +17,9 @@ const verifyToken = token => {
       resolve(payload)
     })
   })
+}
 
-module.exports = verifyToken 
+
   
 const signup = async(req, res) => {
   if (!req.body.email || !req.body.password) {
@@ -35,7 +35,7 @@ const signup = async(req, res) => {
   }
 }
 
-module.exports = signup
+
   
 const signin = async (req, res) => {
   if(!req.body.email || !req.body.password) {
@@ -66,7 +66,6 @@ const signin = async (req, res) => {
   }
 }
 
-module.exports = signin 
 
 const protect = async (req, res, next) => {
   const bearer = req.headers.authorization
@@ -96,4 +95,4 @@ const protect = async (req, res, next) => {
   next()
 }
 
-module.exports = protect 
+module.exports = {verifyToken, newToken,  signup, signin, protect}  
