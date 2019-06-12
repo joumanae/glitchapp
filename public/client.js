@@ -7,12 +7,15 @@ function reqListener (data) {
   document.body.innerHTML += this.responseText + '&lt;br&gt;';
 }
 
-const shifts = setInterval(function () {
-var oReq = new XMLHttpRequest();
+const addshifts = function() {
+var oReq = new XMLHttpRequest(); 
 oReq.addEventListener("load", reqListener);
 oReq.open("GET", "/api/shifts");
 oReq.send();
-}, 3000);
+}
+      
+      
+      
 
 // our default array of shifts
 
@@ -20,7 +23,7 @@ oReq.send();
 
 const shiftsList = document.getElementById('shifts');
 const shiftsForm = document.forms[0];
-const shiftInput = {shift :shiftsForm.elements['shift'], starttime: shiftsForm.elements['starttime'], endtime: shiftsForm.elements['endtime']} ;
+
 
 
 const appendNewShift = function(shift) {
@@ -29,7 +32,7 @@ const appendNewShift = function(shift) {
   shiftsList.appendChild(newListItem);
 }
 
-
+const getShifts = function()
 shifts.forEach( function(shift) {
   appendNewShift(shift);
 });
@@ -39,6 +42,8 @@ shiftsForm.onsubmit = function(event) {
   // stop our form submission from refreshing the page
   event.preventDefault();
 
+  let shiftInput = {shift: event.srcElement.elements['shift'], starttime: event.srcElement.elements['starttime'], endtime: event.srcElement.elements['endtime']}
+  
   shifts.push(shiftInput.value);
   appendNewShift(shiftInput.value);
 
