@@ -8,6 +8,10 @@ const shiftSchema = new mongoose.Schema(
       trim: true,
       maxlength: 8
     }, 
+    time:{
+      type: Date,
+      default: Date.now
+    }, 
     start_time: {
       type: Date, 
       required: true, 
