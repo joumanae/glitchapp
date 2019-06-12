@@ -11,7 +11,7 @@ const newToken = user => {
 
 module.exports = newToken 
 
-const verityToken = token => {
+const verifyToken = token => {
   new Promise((resolve, reject) => {
     jwt.verify(token, config.secrets.jwt, (err, payload) => {
       if (err) return reject(err)
@@ -23,7 +23,21 @@ module.exports = verifyToken
   
 const signup = async(req, res) => {
   if (!req.body.email || !req.body.password) {
-    return res.status(400).send({message})
+    return res.status(400).send({message: 'Please add your email and password'})
+  } 
+  
+  try{
+    const user = await User.create
   }
 }
 }
+
+// var m;
+// try {
+//     m = require(modulePath);
+// } catch (e) {
+//     if (e.code !== 'MODULE_NOT_FOUND') {
+//         throw e;
+//     }
+//     m = backupModule;
+// }
