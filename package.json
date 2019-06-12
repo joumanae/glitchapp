@@ -13,7 +13,8 @@
     "mongodb": "^3.2.6",
     "synchronize": "^2.0.0",
     "mongoose-validator": "^2.1.0",
-    "mongoose": "^5.5.12"
+    "mongoose": "^5.5.12",
+    "jsonwebtoken": "^8.5.1"
   },
   "engines": {
     "node": "6.x"
