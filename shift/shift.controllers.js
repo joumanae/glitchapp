@@ -1,4 +1,4 @@
 const {crudControllers } = require('../utils/crud')
-const { Item } = require('./item.model') 
+const { Shift } = require('./shift.model') 
 
-module.exports = {crudControllers, Item} 
+module.exports = {crudControllers, Shift} 
