@@ -6,6 +6,9 @@
 var express = require("express");
 var app = express();
 var bodyParser = require('body-parser');
+const userRouter = require('./user/user.router') 
+
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static('public')); // http://expressjs.com/en/starter/static-files.html
@@ -13,6 +16,16 @@ var connected=false;
 app.listen(3000);
 console.log('Listening on port 3000');
     
+
+app.use(express.static('public'));
+app.use('/api/user', userRouter)
+
+//app.use()
+// define functions that would fetch the function that would create the 
+// http://expressjs.com/en/starter/basic-routing.html
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
 // setup nunjucks for templating in views/index.html
 var nunjucks = require('nunjucks');
 nunjucks.configure('views', { autoescape: true, express: app });
@@ -85,18 +98,10 @@ function initializeDatastoreOnProjectCreation() {
     connected = datastore.connect();
   }
   if (!datastore.get("initialized")) {
-    datastore.set("posts", initialPosts);
+    datastore.set("posts", initialShifts);
     datastore.set("initialized", true);
   }  
 }
 
-var initialPosts = [
-  {
-    title: "Hello!",
-    body: "Among other things, you could make a pretty sweet blog."
-  },
-  {
-    title: "Another Post",
-    body: "Today I saw a double rainbow. It was pretty neat."
-  }
+var initialShifts = [
 ];
