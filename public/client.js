@@ -4,7 +4,7 @@
 console.log('hello world, hello shifts :)');
 
 
-// our default array of dreams
+// our default array of shifts
 const shifts = [
 ];
 

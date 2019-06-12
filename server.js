@@ -38,10 +38,10 @@ datastore.initializeApp(app);
 app.get("/", function (request, response) {
   try {
     initializeDatastoreOnProjectCreation();
-    var posts = datastore.get("posts");
+    var shifts = datastore.get("shifts");
     response.render('index.html', {
       title: "Welcome!",
-      posts: posts.reverse()
+      posts: shifts.reverse()
     });
   } catch (err) {
     console.log("Error: " + err);
@@ -49,14 +49,14 @@ app.get("/", function (request, response) {
   }
 });
 
-app.post("/posts", function (request, response) {
+app.post("/shifts", function (request, response) {
   try {
     // Get the existing posts from the MongoDB and put it into an array called posts
-    var posts = datastore.get("posts");
+    var shifts = datastore.get("shifts");
     // We get the contents of the submitted form and append it to the posts array
-    posts.push(request.body); // the form data is in request.body because we're using the body-parser library to help make dealing with requests easier
+    shifts.push(request.body); // the form data is in request.body because we're using the body-parser library to help make dealing with requests easier
     // We store the updated posts array back in our database posts entry
-    datastore.set("posts", posts);
+    datastore.set("shifts", shifts);
     // And then we redirect the view back to the homepage
     response.redirect("/");
   } catch (err) {
@@ -98,7 +98,7 @@ function initializeDatastoreOnProjectCreation() {
     connected = datastore.connect();
   }
   if (!datastore.get("initialized")) {
-    datastore.set("posts", initialShifts);
+    datastore.set("shifts", initialShifts);
     datastore.set("initialized", true);
   }  
 }
