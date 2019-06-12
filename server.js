@@ -6,9 +6,7 @@
 var express = require("express");
 var app = express();
 var bodyParser = require('body-parser');
-const signup = require('./utils/auth');
-const signin = require('./utils/auth'); 
-const protect = require('./utils/protect'); 
+const {signup, signin, protect} = require('./utils/auth');
 const userRouter = require('./user/user.router'); 
 const shiftRouter = require('./shift/shift.router'); 
 const listRouter = require('./list/list.router'); 
