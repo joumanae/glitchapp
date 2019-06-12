@@ -19,19 +19,27 @@ const verifyToken = token => {
   })
 }
 
-const signup = async(req, res) => {
+require.define({"complex-numbers/plus-two": function(require, exports){
+// define body in callback
+  var sum = require("./complex-number").sum;
+  exports.plusTwo = function(a){
+  return sum(a, 2);
+};
+
+require.define({"signup": function(require, exports){ 
   if (!req.body.email || !req.body.password) {
     return res.status(400).send({message: 'Please add your email and password'})
-  } 
+  })
   
   try{
-    const user = await User.create
+    exports.user =  User.create
     const token = newToken(user)
     return res.status(201).send({token})
   } catch (e){
     return res.status(500).end()
   }
 }
+
 
 
   
