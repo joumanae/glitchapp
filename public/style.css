@@ -7,12 +7,15 @@
 
 body {
   font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
-  margin: 2em;
+  margin: auto;
+  text-align:center; 
+  vertical-align:middle;
 }
 
 h1 {
   font-style: bold;
   color: #00a67c;
+  
 }
 
 .bold {
@@ -21,6 +24,8 @@ h1 {
 
 p {
   max-width: 600px;
+  
+
 }
 
 form {
