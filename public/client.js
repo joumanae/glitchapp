@@ -3,6 +3,18 @@
 
 console.log('hello world, hello shifts :)');
 
+'use strict' 
+
+function reqListener (data) {
+  document.body.innerHTML += this.responseText + '&lt;br&gt;';
+}
+
+setInterval(function () {
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "/api");
+oReq.send();
+}, 3000);
 
 // our default array of shifts
 const shifts = [
