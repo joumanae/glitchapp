@@ -1,33 +1,58 @@
 const mongoose = require('mongoose')
-const shiftSchema = new mongoose.Schema(
+const bcrypt = require('bcrypt')
+
+
+const userSchema = new mongoose.Schema(
+  
   {
-    user_id: {
-      type: Number,
-      required: true,
-      trim: true,
-      maxlength: 8
-    }, 
-    start_time: {
-      type: Date, 
+    email: {
+      type: String, 
       required: true, 
+      unique: true, 
       trim: true
-      
     }, 
-    end_time: {
-      type: Date, 
-      required: true, 
-      trim: true 
-      
+    
+    password: {
+      type: String, 
+      required: true
     }, 
-    createdBy:{
-      type: mongoose.SchemaTypes.ObjectId,
-      required: true, 
-      ref: 'user'
+    
+    settings: {
+      theme: {
+        type: String, 
+        required: true, 
+        default: 'dark '
+      }, 
+      notifications: {
+        type: Boolean, 
+        required: true, 
+        default: true
+      }, 
+      compactMode: {
+        type: Boolean,
+        required: true,
+        default: false
+      }
     }
-  },
-  { timestamps: true }
+  }, 
+  {timestamps: true}
+
 )
-shiftSchema.index({user: 1, start_date: 1, end_date: 1}, {unique: true})
-const Shift = mongoose.model('shift', shiftSchema)
-module.exports = Shift 
- 
+
+userSchema.pre('save', function(next){
+  if (!this.isModified('password')){
+    return next()
+  }
+  
+  bcrypt.hash(this.password, 8, (err,hash) => {
+    if (err){
+      return next(err)
+    }
+    this.password = hash
+    next() 
+  })
+})
+
+userSchema.methods.checkPassword = function(password) {
+  
+}
