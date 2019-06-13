@@ -48,8 +48,8 @@ shiftsForm.onsubmit = function(event) {
   
   
 const postshifts = function(){
-  
-  app.post('/api/shift', function(req, res){
+  var oReq = new XMLHttpRequest(); 
+  oReq.post("POST", "/api/shift", function(req, res){
            
            
            }); 
