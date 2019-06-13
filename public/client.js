@@ -53,7 +53,7 @@ shiftsForm.onsubmit = function(event) {
 
 document.getElementById("shifts").reset();
 
-//logic`
+
 // var xhr = new XMLHttpRequest();
 // xhr.open('GET', '/server', true);
 
