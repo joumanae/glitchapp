@@ -20,11 +20,11 @@ const shiftSchema = new mongoose.Schema(
       trim: true 
       
     }, 
-    // createdBy:{
-    //   type: mongoose.SchemaTypes.ObjectId,
-    //   required: true, 
-    //   ref: 'user'
-    // }, 
+    createdBy:{
+      type: mongoose.SchemaTypes.ObjectId,
+      required: true, 
+      ref: 'user'
+    }, 
       list: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'list',
