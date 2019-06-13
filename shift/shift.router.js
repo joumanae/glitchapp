@@ -8,7 +8,7 @@ const router = express.Router()
 // /api/item
 router
   .route('/')
-  .get(controllers.getOne)
+  .get(controllers.getMany)
   .post(controllers.createOne)
 
 // /api/item/:id
