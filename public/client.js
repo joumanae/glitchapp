@@ -19,13 +19,9 @@ oReq.onereadystatechange = function(){
 oReq.send(); 
 }
       
-// our default array of shifts
-
-
 
 const shiftsList = document.getElementById('shifts');
 const shiftsForm = document.forms[0];
-
 
 
 const appendNewShift = function(shift) {
@@ -54,3 +50,5 @@ shiftsForm.onsubmit = function(event) {
   shiftInput.value = '';
   
 };
+
+document.getElementById("shifts").reset();
