@@ -63,11 +63,9 @@ shiftsForm.onsubmit = function(event) {
   
 };
 
-function clear() {
-  document.getElementById("shifts").reset();
-  
-}
 
-clear(); 
+const clear = document.getElementById("shifts").reset();
+  
+
 
 
