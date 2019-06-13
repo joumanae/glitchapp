@@ -24,11 +24,16 @@ const shiftSchema = new mongoose.Schema(
       type: mongoose.SchemaTypes.ObjectId,
       required: true, 
       ref: 'user'
+    }, 
+      list: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'list',
+      required: true
     }
   },
   { timestamps: true }
 )
-shiftSchema.index({user: 1, start_date: 1, end_date: 1}, {unique: true})
+shiftSchema.index({list: 1, start_date: 1, end_date: 1}, {unique: true})
 const Shift = mongoose.model('shift', shiftSchema)
 module.exports = Shift 
  

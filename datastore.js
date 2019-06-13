@@ -5,10 +5,7 @@ var mongodb = require('mongodb');
 var MONGODB_URI = 'mongodb://'+process.env.USER+':'+process.env.PASS+'@'+process.env.HOST+':'+process.env.DB_PORT+'/'+process.env.DB;
 var collection;
 
-// ------------------------------
-// ASYNCHRONOUS PROMISE-BASED API
-//  SEE BELOW FOR SYNCHRONOUS API
-// ------------------------------
+
 
 // Serializes an object to JSON and stores it to the database
 function set(key, value) {
