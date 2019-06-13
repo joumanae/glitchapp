@@ -42,28 +42,28 @@ datastore.initializeApp(app);
 
 // create routes
 
-app.get("/api/list", function (request, response) {
-  try {
-    initializeDatastoreOnProjectCreation();
-    var list = datastore.get("list");
-    response.render('index.html', {
-      title: "Welcome!",
-      list: list.reverse()
-    });
-  } catch (err) {
-    console.log("Error: " + err);
-    handleError(err, response);
-  }
-});
+// app.get("/api/list", function (request, response) {
+//   try {
+//     initializeDatastoreOnProjectCreation();
+//     var list = datastore.get("list");
+//     response.render('index.html', {
+//       title: "Welcome!",
+//       list: list.reverse()
+//     });
+//   } catch (err) {
+//     console.log("Error: " + err);
+//     handleError(err, response);
+//   }
+// });
 
-app.post("/list", function (request, response) {
+app.post("/shift", function (request, response) {
   try {
     // Get the existing shifts from the MongoDB and put it into an array called posts
-    var list = datastore.get("list");
+    var shift = datastore.get("shift");
     // We get the contents of the submitted form and append it to the posts array
-    list.push(request.body); // the form data is in request.body because we're using the body-parser library to help make dealing with requests easier
+    shift.push(request.body); // the form data is in request.body because we're using the body-parser library to help make dealing with requests easier
     // We store the updated posts array back in our database posts entry
-    datastore.set("list", list);
+    datastore.set("shift", shift);
     // And then we redirect the view back to the homepage
     response.redirect("/");
   } catch (err) {
@@ -73,7 +73,7 @@ app.post("/list", function (request, response) {
 
 app.get("/reset", function (request, response) {
   try {
-    datastore.removeMany(["list", "initialized"]);
+    datastore.removeMany(["shift", "initialized"]);
     response.redirect("/");
   } catch (err) {
     handleError(err, response);
@@ -82,7 +82,7 @@ app.get("/reset", function (request, response) {
 
 app.get("/delete", function (request, response) {
   try {
-    datastore.set("posts", []);
+    datastore.set("shift", []);
     response.redirect("/");
   } catch (err) {
     handleError(err, response);

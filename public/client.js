@@ -4,13 +4,13 @@ console.log('hello world, hello shifts :)');
 'use strict' 
 
 function reqListener (data) {
-  document.body.innerHTML += this.responseText + '&lt;br&gt;';
+  document.body.innerHTML += this.responseText;
 }
 
 const getshifts = function(callback) {
 var oReq = new XMLHttpRequest(); 
 oReq.addEventListener("load", reqListener);
-oReq.open("GET", "/api/shifts");
+oReq.open("GET", "/api/shift");
 oReq.onereadystatechange = function(){
   if(oReq.readyState === 4 && oReq.status === 200){
     callback(oReq.responseTxt)
@@ -45,6 +45,7 @@ shiftsForm.onsubmit = function(event) {
   let shiftInput = {shift: event.srcElement.elements['shift'], starttime: event.srcElement.elements['starttime'], endtime: event.srcElement.elements['endtime']}
   
   appendNewShift(shiftInput.value);
+  
 
   // reset form 
   shiftInput.value = '';
