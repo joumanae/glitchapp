@@ -7,7 +7,7 @@ function reqListener (data) {
   document.body.innerHTML += this.responseText;
 }
 
-const getshifts = function(callback) {
+const getShifts = function(callback) {
 var oReq = new XMLHttpRequest(); 
 oReq.addEventListener("load", reqListener);
 oReq.open("GET", "/api/shift");
@@ -17,6 +17,23 @@ oReq.onereadystatechange = function(){
   }
 }; 
 oReq.send(); 
+}
+
+const loadShifts = function(){ 
+  getShifts(function(shifts) {
+  appendNewShift(shifts);
+})};
+
+loadShifts(); 
+
+const postShifts = function(callback){
+  var oReq = new XMLHttpRequest(); 
+  oReq.open("POST", "/api/shift")
+  oReq.onereadystatechange = function(){
+  if(oReq.readyState === 4 && oReq.status === 200){
+    callback(oReq.responseTxt)
+    }
+  }; 
 }
       
 
@@ -30,13 +47,6 @@ const appendNewShift = function(shift) {
   shiftsList.appendChild(newListItem);
 }
 
-const loadShifts = function(){ 
-  getshifts(function(shifts) {
-  appendNewShift(shifts);
-})};
-
-loadShifts(); 
-
 
 shiftsForm.onsubmit = function(event) {
   // stop our form submission from refreshing the page
@@ -45,22 +55,9 @@ shiftsForm.onsubmit = function(event) {
   let shiftInput = {shift: event.srcElement.elements['shift'], starttime: event.srcElement.elements['starttime'], endtime: event.srcElement.elements['endtime']}
   
   appendNewShift(shiftInput.value);
-  
-  
-const postshifts = function(){
-  var oReq = new XMLHttpRequest(); 
-  oReq.post("POST", "/api/shift", function(req, res){
-           
-           
-           }); 
-  //app.post('/',function(req,res){
-   //var username = req.body.username;
-   //var htmlData = 'Hello:' + username;
-   //res.send(htmlData);
-   //console.log(htmlData);
-//});
 
-}
+  postShifts(); 
+
   // reset form 
   shiftInput.value = '';
   

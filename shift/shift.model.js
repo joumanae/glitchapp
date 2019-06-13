@@ -7,11 +7,7 @@ const shiftSchema = new mongoose.Schema(
       required: true,
       trim: true,
       maxlength: 8
-    }, 
-    time:{
-      type: Date,
-      default: Date.now
-    }, 
+    },  
     start_time: {
       type: Date, 
       required: true, 
@@ -32,7 +28,7 @@ const shiftSchema = new mongoose.Schema(
   },
   { timestamps: true }
 )
-shiftSchema.index({list: 1, start_date: 1, end_date: 1}, {unique: true})
+shiftSchema.index({user: 1, start_date: 1, end_date: 1}, {unique: true})
 const Shift = mongoose.model('shift', shiftSchema)
 module.exports = Shift 
  
