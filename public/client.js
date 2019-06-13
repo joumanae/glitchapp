@@ -46,6 +46,13 @@ shiftsForm.onsubmit = function(event) {
   
   appendNewShift(shiftInput.value);
   
+  
+const postshifts = function(){
+  
+  app.post('/api/shift', function(req, res){
+           
+           
+           }); 
   //app.post('/',function(req,res){
    //var username = req.body.username;
    //var htmlData = 'Hello:' + username;
@@ -53,6 +60,7 @@ shiftsForm.onsubmit = function(event) {
    //console.log(htmlData);
 //});
 
+}
   // reset form 
   shiftInput.value = '';
   
