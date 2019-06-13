@@ -2,11 +2,11 @@ const mongoose = require('mongoose')
 
 const shiftSchema = new mongoose.Schema(
   {
-    user_id: {
-      type: Number,
+    name: {
+      type: String,
       required: true,
       trim: true,
-      maxlength: 8
+      maxlength: 50
     },  
     start_time: {
       type: Date, 
