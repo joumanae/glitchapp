@@ -1,3 +1,6 @@
+
+
+
 const getOne = model => async (req, res) => {
   try {
     const doc = await model
