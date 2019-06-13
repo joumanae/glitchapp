@@ -60,16 +60,3 @@ shiftsForm.onsubmit = function(event) {
 
 document.getElementById("shifts").reset();
 
-
-// var xhr = new XMLHttpRequest();
-// xhr.open('GET', '/server', true);
-
-// xhr.onload = function () {
-//   // Request finished. Do processing here.
-// };
-
-// xhr.send(null);
-// // xhr.send('string');
-// // xhr.send(new Blob());
-// // xhr.send(new Int8Array());
-// // xhr.send(document);
